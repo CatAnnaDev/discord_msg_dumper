@@ -26,11 +26,12 @@ ws = websocket.WebSocket()
 ws.connect('wss://gateway.discord.gg/?v=9&encording=json')
 event = recieve_json_response(ws)
 
-heartbeat_interval = event['d']['heartbeat_interval'] / 1000 - 40
+heartbeat_interval = event['d']['heartbeat_interval'] / 1000 #41.25
 print(heartbeat_interval)
 threading._start_new_thread(heartbeat, (heartbeat_interval, ws))
 
 token = "" # authorization token in request header message (xhr type)
+
 payload = {
     'op': 2,
     "d": {
@@ -43,6 +44,22 @@ payload = {
     }
 }
 send_json_request(ws, payload)
+
+payload_RPC = {
+  "op": 3,
+  "d": {
+    "since": 91879201,
+    "activities": [{
+      "name": "chalut \\o/",
+      "type": 0
+    }],
+    "status": "invisible",
+    "afk": False
+  }
+}
+send_json_request(ws, payload_RPC)
+
+
 
 type_msg = ["DEFAULT", "RECIPIENT_ADD", "RECIPIENT_REMOVE", "CALL", "CHANNEL_NAME_CHANGE", "CHANNEL_ICON_CHANGE", "CHANNEL_PINNED_MESSAGE", "GUILD_MEMBER_JOIN", "USER_PREMIUM_GUILD_SUBSCRIPTION", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3", "CHANNEL_FOLLOW_ADD", "", "GUILD_DISCOVERY_DISQUALIFIED", "GUILD_DISCOVERY_REQUALIFIED", "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING", "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING", "THREAD_CREATED", "REPLY", "CHAT_INPUT_COMMAND", "THREAD_STARTER_MESSAGE", "GUILD_INVITE_REMINDER", "CONTEXT_MENU_COMMAND"]
 
