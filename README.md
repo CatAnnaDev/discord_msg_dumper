@@ -9,4 +9,8 @@ dump message data<br>
 <br>
 pip install websocket-client<br>
 <br>
-token = "" # authorization token in request header message (xhr type)
+token = "" # authorization token in request header message (xhr type)<br>
+<br>
+slow down heartbeat interval to 41.25sec to prevent wss reconnect or crash <br>
+update WSS to edit RPC 
+
