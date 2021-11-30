@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import websocket  # pip3 install websocket-client
+import requests  # pip3 install requests
+import mimetypes
 import json
 import threading
 import time
@@ -14,6 +16,7 @@ status = "invisible"
 activities_name = "chalut \\o/"
 Custom_RPC = True
 Show_Header = False
+img_download = True
 
 
 def send_json_request(ws, request):
@@ -34,6 +37,13 @@ def heartbeat(interval, ws):
             "d": "null"
         }
         send_json_request(ws, heartbeatJSON)
+
+
+def download(url, name):
+    response = requests.get(url)
+    file = open(name, "wb")
+    file.write(response.content)
+    file.close()
 
 
 ws = websocket.WebSocket()
@@ -84,11 +94,11 @@ payload_GMember = {
         "guild_id": guildID,
         "query": "",
         "limit": 0
-  }
+    }
 }
 
 #send_json_request(ws, payload_GMember)
-    
+
 type_msg = ["DEFAULT", "RECIPIENT_ADD", "RECIPIENT_REMOVE", "CALL", "CHANNEL_NAME_CHANGE", "CHANNEL_ICON_CHANGE", "CHANNEL_PINNED_MESSAGE", "GUILD_MEMBER_JOIN", "USER_PREMIUM_GUILD_SUBSCRIPTION", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3",
             "CHANNEL_FOLLOW_ADD", "", "GUILD_DISCOVERY_DISQUALIFIED", "GUILD_DISCOVERY_REQUALIFIED", "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING", "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING", "THREAD_CREATED", "REPLY", "CHAT_INPUT_COMMAND", "THREAD_STARTER_MESSAGE", "GUILD_INVITE_REMINDER", "CONTEXT_MENU_COMMAND"]
 
@@ -104,23 +114,34 @@ while True:
                 usename = f"{event['d']['author']['username']}#{event['d']['author']['discriminator']}"
                 msg_content = event['d']['content']
                 ts = event['d']['timestamp']
-                obj = json.dumps(event['d']['attachments'], sort_keys=True, indent=4)
+                obj = json.dumps(event['d']['attachments'],
+                                 sort_keys=True, indent=4)
                 url_msg = f"https://discord.com/channels/{event['d']['guild_id']}/{event['d']['channel_id']}/{event['d']['nonce']}"
-                
-                file_object.write("------------------------------------------------------------\n")
+
+                file_object.write(
+                    "------------------------------------------------------------\n")
                 if not "url" in obj:
-                    file_object.write(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}")
+                    file_object.write(
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\n")
                 else:
-                    attachments_link = f"\t\nUrl: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}"
-                    file_object.write(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
-                
+                    attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
+                    file_object.write(
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
+
                 print("------------------------------------------------------------")
                 if not "url" in obj:
-                    print(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}")
+                    print(
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\n")
                 else:
-                    attachments_link = f"\t\nUrl: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}"
-                    print(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
-                
+                    attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
+                    print(
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
+                    if img_download:
+                        print(
+                            f"Downloading Media {event['d']['attachments'][0]['filename']}")
+                        download(event['d']['attachments'][0]['url'],
+                                 event['d']['attachments'][0]['filename'])
+
                 #print(json.dumps(event, indent=4))
             else:
                 print("No Log.txt file found")
