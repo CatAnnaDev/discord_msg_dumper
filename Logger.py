@@ -8,6 +8,7 @@ import os
 ###### CONFIG ######
 # authorization token in request header message (xhr type)
 token = ""
+guildID = "292822970290929664"
 heartbeat_interval_num = 1000  # = 41.25s
 status = "invisible"
 activities_name = "chalut \\o/"
@@ -72,10 +73,22 @@ payload_RPC = {
         "afk": False
     }
 }
+
 if Custom_RPC:
     send_json_request(ws, payload_RPC)
     print(f"Custom RPC set: {status} //// {activities_name}")
 
+payload_GMember = {
+    "op": 8,
+    "d": {
+        "guild_id": guildID,
+        "query": "",
+        "limit": 0
+  }
+}
+
+#send_json_request(ws, payload_GMember)
+    
 type_msg = ["DEFAULT", "RECIPIENT_ADD", "RECIPIENT_REMOVE", "CALL", "CHANNEL_NAME_CHANGE", "CHANNEL_ICON_CHANGE", "CHANNEL_PINNED_MESSAGE", "GUILD_MEMBER_JOIN", "USER_PREMIUM_GUILD_SUBSCRIPTION", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3",
             "CHANNEL_FOLLOW_ADD", "", "GUILD_DISCOVERY_DISQUALIFIED", "GUILD_DISCOVERY_REQUALIFIED", "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING", "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING", "THREAD_CREATED", "REPLY", "CHAT_INPUT_COMMAND", "THREAD_STARTER_MESSAGE", "GUILD_INVITE_REMINDER", "CONTEXT_MENU_COMMAND"]
 
@@ -85,23 +98,29 @@ while True:
         if not "bot" in event['d']['author']:
             file_object = open("Log.txt", "a")
             if os.path.exists("Log.txt"):
-
                 opcodes = event['t']
                 opcodes_type = event['op']
                 Type = f"{type_msg[event['d']['type']]}: {event['d']['type']}"
                 usename = f"{event['d']['author']['username']}#{event['d']['author']['discriminator']}"
                 msg_content = event['d']['content']
-                url_msg = f"https://discord.com/channels/@me/{event['d']['channel_id']}/{event['d']['author']['id']}"
-                url_msg2 = f"https://discord.com/channels/{event['d']['guild_id']}/{event['d']['channel_id']}/{event['d']['nonce']}"
-
-                file_object.write(
-                    "------------------------------------------------------------\n")
-                file_object.write(
-                    f"Opcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg2}\n{usename}: {msg_content}\n")
-
+                ts = event['d']['timestamp']
+                obj = json.dumps(event['d']['attachments'], sort_keys=True, indent=4)
+                url_msg = f"https://discord.com/channels/{event['d']['guild_id']}/{event['d']['channel_id']}/{event['d']['nonce']}"
+                
+                file_object.write("------------------------------------------------------------\n")
+                if not "url" in obj:
+                    file_object.write(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}")
+                else:
+                    attachments_link = f"\t\nUrl: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}"
+                    file_object.write(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
+                
                 print("------------------------------------------------------------")
-                print(
-                    f"Opcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg2}\n{usename}: {msg_content}")
+                if not "url" in obj:
+                    print(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}")
+                else:
+                    attachments_link = f"\t\nUrl: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}"
+                    print(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
+                
                 #print(json.dumps(event, indent=4))
             else:
                 print("No Log.txt file found")
