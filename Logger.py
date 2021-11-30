@@ -19,6 +19,7 @@ activities_name = "chalut \\o/"
 Custom_RPC = True
 Show_Header = False
 img_download = True
+var_name = random.randint(0, 500000)
 
 
 class bcolors:
@@ -55,8 +56,7 @@ def heartbeat(interval, ws):
 
 def download(url, name):
     response = requests.get(url)
-    var_name = random.randint(0, 500000)
-    file = open(str(var_name) + name, "wb")
+    file = open(name, "wb")
     file.write(response.content)
     file.close()
 
@@ -69,6 +69,14 @@ def convert_size(size_bytes):
     p = math.pow(1024, i)
     s = round(size_bytes / p, 2)
     return "%s %s" % (s, size_name[i])
+
+
+def enumerate(collection):
+    i = 0
+    it = iter(collection)
+    while 1:
+        yield (i, it.next())
+        i += 1
 
 
 ws = websocket.WebSocket()
@@ -162,11 +170,21 @@ while True:
                     print(
                         f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
                     if img_download:
-                        print(bcolors.OKGREEN +
-                              f"Downloading Media {event['d']['attachments'][0]['filename']} // Size: {convert_size(int(event['d']['attachments'][0]['size']))}" + bcolors.ENDC)
-                        download(event['d']['attachments'][0]['url'],
-                                 event['d']['attachments'][0]['filename'])
-
+                        print(
+                            bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
+                        if len(event['d']['attachments']) == 1:
+                            mini = event['d']['attachments'][0]
+                            custom_name = str(var_name) + mini['filename']
+                            print(
+                                bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
+                            download(mini['url'], custom_name)
+                        else:
+                            for index in range(len(event['d']['attachments'])):
+                                mini = event['d']['attachments'][index]
+                                custom_name = str(var_name) + mini['filename']
+                                print(
+                                    bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
+                                download(mini['url'], custom_name)
                 #print(json.dumps(event, indent=4))
             else:
                 print("No Log.txt file found")
