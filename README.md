@@ -4,8 +4,12 @@ dump all discord msg in real time
 dump opcode + opcode message + opcode code<br>
 dump type + type message + type code<br>
 dump username + discriminator<br>
+add timestamp from message<br>
 rebuild url from message source<br>
 dump message data<br>
+dump media link + name<br>
+auto download media && print name + size in green<br>
+mutli link support ( not embed ) <br>
 <br>
 pip install websocket-client<br>
 <br>
