@@ -1,6 +1,9 @@
 # discord_msg_dumper
 dump all discord msg in real time
 
+Win launch Start.bat<br>
+Linux / MacOS chmod +x Start.sh ./Start.sh<br>
+<br>
 dump opcode + opcode message + opcode code<br>
 dump type + type message + type code<br>
 dump username + discriminator<br>
