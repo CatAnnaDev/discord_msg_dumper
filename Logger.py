@@ -6,6 +6,7 @@ import json
 import threading
 import random
 import time
+import math
 import os
 
 ###### CONFIG ######
@@ -18,6 +19,18 @@ activities_name = "chalut \\o/"
 Custom_RPC = True
 Show_Header = False
 img_download = True
+
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 
 def send_json_request(ws, request):
@@ -46,6 +59,16 @@ def download(url, name):
     file = open(str(var_name) + name, "wb")
     file.write(response.content)
     file.close()
+
+
+def convert_size(size_bytes):
+    if size_bytes == 0:
+        return "0B"
+    size_name = ("B", "KB", "MB", "GB")
+    i = int(math.floor(math.log(size_bytes, 1024)))
+    p = math.pow(1024, i)
+    s = round(size_bytes / p, 2)
+    return "%s %s" % (s, size_name[i])
 
 
 ws = websocket.WebSocket()
@@ -139,8 +162,8 @@ while True:
                     print(
                         f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
                     if img_download:
-                        print(
-                            f"Downloading Media {event['d']['attachments'][0]['filename']}")
+                        print(bcolors.OKGREEN +
+                              f"Downloading Media {event['d']['attachments'][0]['filename']} // Size: {convert_size(int(event['d']['attachments'][0]['size']))}" + bcolors.ENDC)
                         download(event['d']['attachments'][0]['url'],
                                  event['d']['attachments'][0]['filename'])
 
