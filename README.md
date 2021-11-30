@@ -18,3 +18,4 @@ token = "" # authorization token in request header message (xhr type)<br>
 slow down heartbeat interval to 41.25sec to prevent wss reconnect or crash <br>
 update WSS to edit RPC 
 
+![](https://cdn.discordapp.com/attachments/854214724169236483/915248541226643466/Screen_Shot_2021-11-30_at_15.30.12.png)
