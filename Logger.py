@@ -4,6 +4,7 @@ import requests  # pip3 install requests
 import mimetypes
 import json
 import threading
+import random
 import time
 import os
 
@@ -41,7 +42,8 @@ def heartbeat(interval, ws):
 
 def download(url, name):
     response = requests.get(url)
-    file = open(name, "wb")
+    var_name = random.randint(0, 500000)
+    file = open(str(var_name) + name, "wb")
     file.write(response.content)
     file.close()
 
