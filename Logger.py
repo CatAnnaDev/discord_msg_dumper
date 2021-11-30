@@ -19,7 +19,6 @@ activities_name = "chalut \\o/"
 Custom_RPC = True
 Show_Header = False
 img_download = True
-var_name = random.randint(0, 500000)
 
 
 class bcolors:
@@ -174,6 +173,7 @@ while True:
                             bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
                         if len(event['d']['attachments']) == 1:
                             mini = event['d']['attachments'][0]
+                            var_name = random.randint(0, 500000)
                             custom_name = str(var_name) + mini['filename']
                             print(
                                 bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
@@ -181,6 +181,7 @@ while True:
                         else:
                             for index in range(len(event['d']['attachments'])):
                                 mini = event['d']['attachments'][index]
+                                var_name = random.randint(0, 500000)
                                 custom_name = str(var_name) + mini['filename']
                                 print(
                                     bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
