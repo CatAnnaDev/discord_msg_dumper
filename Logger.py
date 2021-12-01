@@ -12,13 +12,16 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 ###### CONFIG ######
 # authorization token in request header message (xhr type) OR see on footer page
-token = ""
-heartbeat_interval_num = 1000  # = 41.25s
-status = "invisible"
-activities_name = "chalut \\o/"
-Custom_RPC = False
-Show_Header = False
-img_download = False
+
+
+class config:
+    token = ""
+    heartbeat_interval_num = 1000  # = 41.25s
+    status = "invisible"
+    activities_name = "chalut \\o/"
+    Custom_RPC = False
+    Show_Header = False
+    img_download = False
 
 
 class bcolors:
@@ -73,7 +76,7 @@ def convert_size(size_bytes):
 def get_guild_name(id):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
-        'Authorization': token
+        'Authorization': config.token
     }
 
     response = requests.get(
@@ -87,21 +90,22 @@ def get_guild_name(id):
 ws = websocket.WebSocket()
 ws.connect('wss://gateway.discord.gg/?v=9&encording=json')
 print(
-    f"Config: \n\tCustom_RPC = {Custom_RPC}\n\tShow_Header = {Show_Header}\n\timg_download = {img_download}\n\tMSG Color = {bcolors.OKPURPLE}Purple{bcolors.ENDC}\n\tMedia Color = {bcolors.OKCYAN}Cyan{bcolors.ENDC}\n\tMedia Download = {bcolors.OKGREEN}Green{bcolors.ENDC}")
-if Show_Header:
+    f"Config: \n\tCustom_RPC = {config.Custom_RPC}\n\tShow_Header = {config.Show_Header}\n\timg_download = {config.img_download}\n\tMSG Color = {bcolors.OKPURPLE}Purple{bcolors.ENDC}\n\tMedia Color = {bcolors.OKCYAN}Cyan{bcolors.ENDC}\n\tMedia Download = {bcolors.OKGREEN}Green{bcolors.ENDC}")
+if config.Show_Header:
     print(f"Headers ? {json.dumps(ws.headers, indent=4)}")
     print("------------------------------------------------------------")
 event = recieve_json_response(ws)
 
-heartbeat_interval = event['d']['heartbeat_interval'] / heartbeat_interval_num
+heartbeat_interval = event['d']['heartbeat_interval'] / \
+    config.heartbeat_interval_num
 print(f"Connected ? = {ws.connected}")
-print(heartbeat_interval)
+print(f"heartbeat_interval = {heartbeat_interval}")
 threading._start_new_thread(heartbeat, (heartbeat_interval, ws))
 
 payload = {
     'op': 2,
     "d": {
-        "token": token,
+        "token": config.token,
         "properties": {
             "$os": "windows",
             "$browser": "chrome",
@@ -116,18 +120,18 @@ payload_RPC = {
     "d": {
         "since": 91879201,
         "activities": [{
-            "name": activities_name,
+            "name": config.activities_name,
             "type": 0
         }],
-        "status": status,
+        "status": config.status,
         "afk": False
     }
 }
 
-if Custom_RPC:
+if config.Custom_RPC:
     send_json_request(ws, payload_RPC)
     print(
-        f"Custom RPC set: {status} //// {activities_name}")
+        f"Custom RPC set: {config.status} //// {config.activities_name}")
 
 
 type_msg = ["DEFAULT", "RECIPIENT_ADD", "RECIPIENT_REMOVE", "CALL", "CHANNEL_NAME_CHANGE", "CHANNEL_ICON_CHANGE", "CHANNEL_PINNED_MESSAGE", "GUILD_MEMBER_JOIN", "USER_PREMIUM_GUILD_SUBSCRIPTION", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3",
@@ -167,7 +171,7 @@ while True:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     print(
                         f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
-                    if img_download:
+                    if config.img_download:
                         print(
                             bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
                         if len(event['d']['attachments']) == 1:
