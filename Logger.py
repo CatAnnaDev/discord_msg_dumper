@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from operator import truediv
 import websocket  # pip3 install websocket-client
 import requests  # pip3 install requests
 import mimetypes
@@ -8,6 +9,7 @@ import random
 import time
 import math
 import os
+os.system('cls' if os.name == 'nt' else 'clear')
 
 ###### CONFIG ######
 # authorization token in request header message (xhr type)
@@ -18,12 +20,12 @@ status = "invisible"
 activities_name = "chalut \\o/"
 Custom_RPC = True
 Show_Header = False
-img_download = False
+img_download = True
 
 
 class bcolors:
     HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
+    OKPURPLE = '\033[94m'
     OKCYAN = '\033[96m'
     OKGREEN = '\033[92m'
     WARNING = '\033[93m'
@@ -154,20 +156,20 @@ while True:
                     "------------------------------------------------------------\n")
                 if not "url" in obj:
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\n")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\n\nMedia: {attachments_link}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
 
                 print("------------------------------------------------------------")
                 if not "url" in obj:
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\n")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\n\nMedia: {attachments_link}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
                     if img_download:
                         print(
                             bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
