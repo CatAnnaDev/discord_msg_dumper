@@ -16,9 +16,9 @@ token = ""
 heartbeat_interval_num = 1000  # = 41.25s
 status = "invisible"
 activities_name = "chalut \\o/"
-Custom_RPC = True
+Custom_RPC = False
 Show_Header = False
-img_download = True
+img_download = False
 
 
 class bcolors:
@@ -86,6 +86,8 @@ def get_guild_name(id):
 
 ws = websocket.WebSocket()
 ws.connect('wss://gateway.discord.gg/?v=9&encording=json')
+print(
+    f"Config: \n\tCustom_RPC = {Custom_RPC}\n\tShow_Header = {Show_Header}\n\timg_download = {img_download}\n\tMSG Color = {bcolors.OKPURPLE}Purple{bcolors.ENDC}\n\tMedia Color = {bcolors.OKCYAN}Cyan{bcolors.ENDC}\n\tMedia Download = {bcolors.OKGREEN}Green{bcolors.ENDC}")
 if Show_Header:
     print(f"Headers ? {json.dumps(ws.headers, indent=4)}")
     print("------------------------------------------------------------")
