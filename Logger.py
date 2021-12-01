@@ -19,9 +19,9 @@ class config:
     heartbeat_interval_num = 1000  # = 41.25s
     status = "invisible"
     activities_name = "chalut \\o/"
-    Custom_RPC = False
+    Custom_RPC = True
     Show_Header = False
-    img_download = False
+    img_download = True
 
 
 class bcolors:
@@ -159,18 +159,18 @@ while True:
                     file_object.write(
                         f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{usename}: {msg_content}\n")
                 else:
-                    attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
+                    attachments_link = f"\n\tUrl: {event['d']['attachments'][0]['url']} \n\tType: {event['d']['attachments'][0]['content_type']}\n"
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{usename}: {msg_content}\t\n\n Media: {attachments_link} ")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{usename}: {msg_content}\n\n Media: {attachments_link} ")
 
                 print("------------------------------------------------------------")
                 if not "url" in obj:
                     print(
                         f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
-                    attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
+                    attachments_link = f"\n\tUrl: {event['d']['attachments'][0]['url']} \n\tType: {event['d']['attachments'][0]['content_type']}\n"
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
                     if config.img_download:
                         print(
                             bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
