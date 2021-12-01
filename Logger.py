@@ -91,7 +91,6 @@ def get_guild_name(id):
     ).json()
     return response['name']
 
-
 ws = websocket.WebSocket()
 ws.connect('wss://gateway.discord.gg/?v=9&encording=json')
 if Show_Header:
@@ -176,8 +175,7 @@ while True:
 
                 print("------------------------------------------------------------")
                 if not "url" in obj:
-                    print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
+                    print(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     print(

@@ -1,277 +1,164 @@
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:53:58.776000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: REPLY: 19
-https://discord.com/channels/349243932447604736/688121419980341282/910895447353065472
-JustANobody#2107: how is this a support question lmao
+Msg URL: https://discord.com/channels/298954459172700181/298954459172700181/921847894342893568
+Server name: Animekos | Ayako 🏮 
+[94m4Chain#8013: New flowers coming soon[0m	
+
+[96m Media: Url: https://cdn.discordapp.com/attachments/298954459172700181/915677120385134592/20211201_141021.jpg 	
+Type: image/jpeg
+ [0m------------------------------------------------------------
+Timestamp: 2021-12-01T18:53:59.420000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/332309672486895637/911959817315295252/915677124898062336
+Server name: r/Apple 
+[94mRoadblocked#0117: lovely that the apple music web app is better than the actual app on windows[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:00.503000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/186648463541272576/186648463541272576/915677125690785792
+Server name: /r/Hackintosh Paradise 
+[94mmind#6102: and someother weird rar extractor i bought[0m
+------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:02.904000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/186648463541272576/186648463541272576/915677135820029952
+Server name: /r/Hackintosh Paradise 
+[94mmind#6102: dumb me smh[0m
+------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:03.108000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677141721415680
+Server name: r/Jailbreak 
+[94mSiloski#6033: Wtf Ómicron variant detected in California now[0m
+------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:07.672000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/298954459172700181/298954459172700181/921847941793054720
+Server name: Animekos | Ayako 🏮 
+[94mS2N☆#7053: Btw the song that played when Snail's House showed up in the list[0m
+------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:10.976000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677174105636864
+Server name: r/Jailbreak 
+[94mTedLasso#6402: nice[0m
+------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:13.037000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/332309672486895637/911960021649207296/915677183081447424
+Server name: r/Apple 
+[94mMortuZ#4242: how much bacon? yes[0m
+------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:13.628000+00:00
+Opcode: MESSAGE_CREATE: 0
+Type: DEFAULT: 0
+Msg URL: https://discord.com/channels/186648463541272576/251043252046659586/915677185098907648
+Server name: /r/Hackintosh Paradise 
+[94mcherry bomb#8081: should i start from scratch or contact apple support now?[0m
+------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:14.521000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: REPLY: 19
-https://discord.com/channels/349243932447604736/688121419980341282/910895474100142080
-sacrosanct#6699: does this fucking look jailbreak related
+Msg URL: https://discord.com/channels/298954459172700181/298954459172700181/921847970930884608
+Server name: Animekos | Ayako 🏮 
+[94m4Chain#8013: <:AMNyanPat:709789929806233630>[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:14.796000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895499064639488
-Rowin ッ#2200: With that mindset youll definitely be scammed by celebrities
+Msg URL: https://discord.com/channels/332309672486895637/724838114350071818/915677189867831296
+Server name: r/Apple 
+[94mRage#9437: i like having two holes[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:15.956000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: REPLY: 19
-https://discord.com/channels/186648463541272576/251043252046659586/910895505746165760
-Killer.exe#9124: ok
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677195337203712
+Server name: r/Jailbreak 
+[94mrollerorange#3549: sad[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:16.190000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895522745679872
-Rowin ッ#2200: Not saying theyre doing it on purpose
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677196146704384
+Server name: r/Jailbreak 
+[94mTedLasso#6402: death to humanity[0m
 ------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895521038598144
-Nathan.#9999: No
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/824253593892290561/910895528764506112
-Krydal#6854: !as
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895539048939520
-Nathan.#9999: It looks Unix related
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/824253593892290561/910895544094687232
-Antichatounet#2378: !as
-------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:18.412000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: REPLY: 19
-https://discord.com/channels/332309672486895637/852706915644735548/910895540542111744
-Tony Stank#7544: https://tenor.com/view/bleach-simpson-homer-gif-12946893
+Msg URL: https://discord.com/channels/298954459172700181/298954459172700181/915677203897778176
+Server name: Animekos | Ayako 🏮 
+[94m𝐿𝒾𝓉𝓉𝓁𝑒 𝓈𝒽𝑒𝓅𝓅𝓎#0661: Oooooo[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:18.894000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/824253593892290561/910895435898421248
-Bouchonherk130#6584: !as
+Msg URL: https://discord.com/channels/298954459172700181/298954459172700181/921847988580515840
+Server name: Animekos | Ayako 🏮 
+[94mS2N☆#7053: Is the one that was used in the Omniman memes[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:19.902000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895563547869184
-Rowin ッ#2200: but they mightve owned a false on with them knowing.
+Msg URL: https://discord.com/channels/332309672486895637/911960021649207296/915677211770486784
+Server name: r/Apple 
+[94mMortuZ#4242: Nordby be like that[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:19.939000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/785965752628543558/910895557596151808
-ShiversVert#6474: Très envie de faire un compte secondaire pour faire du pixel art sur nos pixels
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677211648851968
+Server name: r/Jailbreak 
+[94mrollerorange#3549: its in NL too[0m
 ------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/713874403729080342/910895587786752000
-pizzy8888#0082: well suck another dick then faggot lol
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/334668470618816523/910895584976568320
-Tezahc#3363: E Key c'est pour une guitare ça <:zrtKappa:898604684779089940> 
-||j'allais partir t'façon 🚪🚶‍♂️ ||
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895607210573824
-JustANobody#2107: no
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895609400000512
-72 79 61 6e 73#6969: 
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895619973840896
-JustANobody#2107: its literally python
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895692694683648
-sacrosanct#6699: python = linux
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895701544665088
-sacrosanct#6699: <:copeextreme:845455347895500830>
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/468422899716456498/821045449245851708/910895710281400320
-Rowan#1677: When can Fugu14 be used? Taurine
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895722394550272
-JustANobody#2107: fine
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895737401769984
-JustANobody#2107: so yeah how shorten?
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895742963417088
-Nathan.#9999: Lol
-------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:20.065000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: REPLY: 19
-https://discord.com/channels/349243932447604736/688122301975363591/910895749015797760
-Superuser#1958: they didn't want to name it igg, but they use the same daemons
+Msg URL: https://discord.com/channels/298954459172700181/298954459172700181/921847993802424320
+Server name: Animekos | Ayako 🏮 
+[94mCre-eature Creator#6045: Ooooo[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:21.169000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/824253593892290561/910895750177619968
-Shoalks#4966: !as
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677217093058560
+Server name: r/Jailbreak 
+[94mrollerorange#3549: well[0m
 ------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/298954459172700181/298954459172700181/910895762739560448
-ren.#4911: indeed
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/249992304503291905/390417960369520643/910895699434930176
-alyxxxx#6711: boot macOS recovery, merge with disk utility
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/249992304503291905/390417960369520643/910895745492582400
-alyxxxx#6711: oh didnt see this
-------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:22.849000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895773636362240
-Rowin ッ#2200: And I dont think selling something like this is just gonna be put on craiglist 😂
+Msg URL: https://discord.com/channels/332309672486895637/911960021649207296/915677224412119040
+Server name: r/Apple 
+[94mAKMysteric#7971: Clogged arteries? Yes[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:24.942000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/813980380780691486/910895791168552960
-YottRedfox#6401: !hvfini
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677233211768832
+Server name: r/Jailbreak 
+[94mrollerorange#3549: it might actually be good[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:26.675000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895792674308096
-vinyl ivy#7767: I’m sure high end celabs check but I see what you mean having someone to check would be helpful
+Msg URL: https://discord.com/channels/332309672486895637/911959817315295252/915677244414754816
+Server name: r/Apple 
+[94mEma#0003: unicef rice man judging leflares' food[0m
 ------------------------------------------------------------
+Timestamp: 2021-12-01T18:54:27.510000+00:00
 Opcode: MESSAGE_CREATE: 0
 Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/824253593892290561/910895833212256256
-|| Iςε ||#7384: !as
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895831253516288
-Bucket#9403: i mean personally
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/808432657838768168/910895844452990976
-Eleindyl#5342: !daily
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/186648463541272576/186648463541272576/910895855131688960
-Lordofpc734#6302: a what?
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688121419980341282/910895851046436864
-72 79 61 6e 73#6969: <:copeharder:904502595610095697>
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/186648463541272576/186648463541272576/910895870361206784
-Lordofpc734#6302: idiot test?
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/332309672486895637/852708863693422612/910895869211967488
-vinyl ivy#7767: Ye I’m sure there’s a whole process
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/808432737697661008/910895886530248704
-Eleindyl#5342: !im zevent2021
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895892742012928
-Rowin ッ#2200: For sure
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/468422899716456498/821045449245851708/910895902128865280
-Vulpes vulpes#6590: fugu14 will be integrated into taurine when fugu14 is integrated into taurine
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/468422899716456498/679875337358016545/910895900396617728
-Banaantje04#2250: default password is alpine
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/349243932447604736/688121419980341282/910895905165541376
-JustANobody#2107: ok whitename+
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/808432657838768168/910895914313318400
-Eragon7237#5400: !daily
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688126500834246709/910895913105358848
-HaeImAlan#0001: !xp
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/808432737697661008/910895947964219392
-Eragon7237#5400: !im zevent2021
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895954477973504
-Bucket#9403: why would a high end celeb scam, has very serious repercusions and reputation damages
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/349243932447604736/688122301975363591/910895962933690368
-0oooGHOSTooo0#9149: its work with ios 14 too
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/349243932447604736/688121419980341282/910895972752556032
-72 79 61 6e 73#6969: Ok whitename++
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895973616582656
-Bucket#9403: you know what i mean
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/138283154589876224/824253593892290561/910895983670329344
-Eragon7237#5400: !as
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/249992304503291905/249992304503291905/910895982802108416
-atanvarno#0846: I can wait a bit longer, someone is bound to travel here t@visit family or whatever. If I manage to score one more card, then it’s definitely worth it to do a Munich for a weekend trip 😉
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: DEFAULT: 0
-https://discord.com/channels/332309672486895637/852708863693422612/910895994097369088
-Rowin ッ#2200: Not saying theyre doing it on purpose
-but they mightve owned a false one without them knowing.
-------------------------------------------------------------
-Opcode: MESSAGE_CREATE: 0
-Type: REPLY: 19
-https://discord.com/channels/332309672486895637/852708863693422612/910895996018360320
-vinyl ivy#7767: Ikr 😂
+Msg URL: https://discord.com/channels/349243932447604736/688121419980341282/915677243865300992
+Server name: r/Jailbreak 
+[94mrollerorange#3549: we dont know yet[0m
