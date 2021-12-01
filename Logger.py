@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from operator import truediv
 import websocket  # pip3 install websocket-client
 import requests  # pip3 install requests
 import mimetypes
@@ -12,7 +11,7 @@ import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
 ###### CONFIG ######
-# authorization token in request header message (xhr type)
+# authorization token in request header message (xhr type) OR see on footer page
 token = ""
 guildID = "292822970290929664"
 heartbeat_interval_num = 1000  # = 41.25s
@@ -78,6 +77,19 @@ def enumerate(collection):
     while 1:
         yield (i, it.next())
         i += 1
+
+def get_guild_name(id):
+    headers = {
+        'User-Agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
+        'Authorization' : token
+    }
+
+    response = requests.get(
+        f"https://discord.com/api/guilds/{id}",
+        headers = headers,
+        params = {"with_counts" : True}
+    ).json()
+    return response['name']
 
 
 ws = websocket.WebSocket()
@@ -156,20 +168,20 @@ while True:
                     "------------------------------------------------------------\n")
                 if not "url" in obj:
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
 
                 print("------------------------------------------------------------")
                 if not "url" in obj:
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\t\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
                     if img_download:
                         print(
                             bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
@@ -227,3 +239,7 @@ while True:
 # 21 THREAD_STARTER_MESSAGE
 # 22 GUILD_INVITE_REMINDER
 # 23 CONTEXT_MENU_COMMAND
+
+# Get discord token from console
+# just copy paste this line below in discord console then copy paste your token
+# var req=webpackJsonp.push([[],{extra_id:(e,r,t)=>e.exports=t},[["extra_id"]]]);for(let e in req.c)if(req.c.hasOwnProperty(e)){let r=req.c[e].exports;if(r&&r.__esModule&&r.default)for(let e in r.default)"getToken"===e&&console.log(r.default.getToken())}
