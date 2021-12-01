@@ -13,7 +13,6 @@ os.system('cls' if os.name == 'nt' else 'clear')
 ###### CONFIG ######
 # authorization token in request header message (xhr type) OR see on footer page
 token = ""
-guildID = "292822970290929664"
 heartbeat_interval_num = 1000  # = 41.25s
 status = "invisible"
 activities_name = "chalut \\o/"
@@ -71,25 +70,19 @@ def convert_size(size_bytes):
     return "%s %s" % (s, size_name[i])
 
 
-def enumerate(collection):
-    i = 0
-    it = iter(collection)
-    while 1:
-        yield (i, it.next())
-        i += 1
-
 def get_guild_name(id):
     headers = {
-        'User-Agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
-        'Authorization' : token
+        'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
+        'Authorization': token
     }
 
     response = requests.get(
         f"https://discord.com/api/guilds/{id}",
-        headers = headers,
-        params = {"with_counts" : True}
+        headers=headers,
+        params={"with_counts": True}
     ).json()
     return response['name']
+
 
 ws = websocket.WebSocket()
 ws.connect('wss://gateway.discord.gg/?v=9&encording=json')
@@ -131,18 +124,9 @@ payload_RPC = {
 
 if Custom_RPC:
     send_json_request(ws, payload_RPC)
-    print(f"Custom RPC set: {status} //// {activities_name}")
+    print(
+        f"Custom RPC set: {status} //// {activities_name}")
 
-payload_GMember = {
-    "op": 8,
-    "d": {
-        "guild_id": guildID,
-        "query": "",
-        "limit": 0
-    }
-}
-
-#send_json_request(ws, payload_GMember)
 
 type_msg = ["DEFAULT", "RECIPIENT_ADD", "RECIPIENT_REMOVE", "CALL", "CHANNEL_NAME_CHANGE", "CHANNEL_ICON_CHANGE", "CHANNEL_PINNED_MESSAGE", "GUILD_MEMBER_JOIN", "USER_PREMIUM_GUILD_SUBSCRIPTION", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2", "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3",
             "CHANNEL_FOLLOW_ADD", "", "GUILD_DISCOVERY_DISQUALIFIED", "GUILD_DISCOVERY_REQUALIFIED", "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING", "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING", "THREAD_CREATED", "REPLY", "CHAT_INPUT_COMMAND", "THREAD_STARTER_MESSAGE", "GUILD_INVITE_REMINDER", "CONTEXT_MENU_COMMAND"]
@@ -175,7 +159,8 @@ while True:
 
                 print("------------------------------------------------------------")
                 if not "url" in obj:
-                    print(f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
+                    print(
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     print(
@@ -189,7 +174,8 @@ while True:
                             custom_name = str(var_name) + mini['filename']
                             print(
                                 bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
-                            threading._start_new_thread(download, (mini['url'], custom_name))
+                            threading._start_new_thread(
+                                download, (mini['url'], custom_name))
                         else:
                             for index in range(len(event['d']['attachments'])):
                                 mini = event['d']['attachments'][index]
@@ -197,7 +183,8 @@ while True:
                                 custom_name = str(var_name) + mini['filename']
                                 print(
                                     bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
-                                threading._start_new_thread(download, (mini['url'], custom_name))
+                                threading._start_new_thread(
+                                    download, (mini['url'], custom_name))
                 #print(json.dumps(event, indent=4))
             else:
                 print("No Log.txt file found")
