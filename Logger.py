@@ -18,7 +18,7 @@ status = "invisible"
 activities_name = "chalut \\o/"
 Custom_RPC = True
 Show_Header = False
-img_download = True
+img_download = False
 
 
 class bcolors:
@@ -158,7 +158,7 @@ while True:
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\n\nMedia: {attachments_link}")
 
                 print("------------------------------------------------------------")
                 if not "url" in obj:
@@ -167,7 +167,7 @@ while True:
                 else:
                     attachments_link = f"Url: {event['d']['attachments'][0]['url']} \t\nType: {event['d']['attachments'][0]['content_type']}\n"
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\nMedia: {attachments_link}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\n{url_msg}\n{usename}: {msg_content}\t\n\nMedia: {attachments_link}")
                     if img_download:
                         print(
                             bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
@@ -177,7 +177,7 @@ while True:
                             custom_name = str(var_name) + mini['filename']
                             print(
                                 bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
-                            download(mini['url'], custom_name)
+                            threading._start_new_thread(download, (mini['url'], custom_name))
                         else:
                             for index in range(len(event['d']['attachments'])):
                                 mini = event['d']['attachments'][index]
@@ -185,7 +185,7 @@ while True:
                                 custom_name = str(var_name) + mini['filename']
                                 print(
                                     bcolors.OKGREEN + f"Downloading Media {custom_name} // Size: {convert_size(int(mini['size']))}" + bcolors.ENDC)
-                                download(mini['url'], custom_name)
+                                threading._start_new_thread(download, (mini['url'], custom_name))
                 #print(json.dumps(event, indent=4))
             else:
                 print("No Log.txt file found")
