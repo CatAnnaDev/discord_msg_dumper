@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import websocket  # pip3 install websocket-client
 import requests  # pip3 install requests
-import mimetypes
 import json
 import threading
 import random
