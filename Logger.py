@@ -23,7 +23,7 @@ class config:
     Activity_link = "https://github.com/PsykoDev"
     Custom_RPC = True
     Show_Header = False
-    img_download = False
+    img_download = True
 
 
 # Activity_type
@@ -123,7 +123,13 @@ def get_channels_name(id, channelID):
     ).json()
     for ch in range(len(responses)):
         if responses[ch]["id"] == channelID:
-            return f"{responses[ch]['name']}\nNSFW ? {responses[ch]['nsfw']}"
+            if responses[ch]['nsfw'] == True:
+                reply = bcolors.FAIL + \
+                    f"\nNSFW ? {responses[ch]['nsfw']}" + bcolors.ENDC
+            else:
+                reply = bcolors.OKGREEN + \
+                    f"\nNSFW ? {responses[ch]['nsfw']}" + bcolors.ENDC
+            return f"{responses[ch]['name']}{reply}"
 
 
 ws = websocket.WebSocket()
