@@ -18,9 +18,20 @@ class config:
     heartbeat_interval_num = 1000  # = 41.25s
     status = "invisible"
     activities_name = "chalut \\o/"
+    Activity_type = 3
+    Activity_link = "https://github.com/PsykoDev"
     Custom_RPC = True
     Show_Header = False
-    img_download = True
+    img_download = False
+
+
+# Activity_type
+# 0	Game	Playing {name}
+# 1	Streaming	Streaming {details}
+# 2	Listening	Listening to {name}
+# 3	Watching	Watching {name}
+# 4	Custom	{emoji} {name}
+# 5	Competing	Competing in {name}
 
 
 class bcolors:
@@ -33,6 +44,22 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+
+class DiscordWebSocket:
+    DISPATCH = 0
+    HEARTBEAT = 1
+    IDENTIFY = 2
+    PRESENCE = 3
+    VOICE_STATE = 4
+    VOICE_PING = 5
+    RESUME = 6
+    RECONNECT = 7
+    REQUEST_MEMBERS = 8
+    INVALIDATE_SESSION = 9
+    HELLO = 10
+    HEARTBEAT_ACK = 11
+    GUILD_SYNC = 12
 
 
 def send_json_request(ws, request):
@@ -49,7 +76,7 @@ def heartbeat(interval, ws):
     while True:
         time.sleep(interval)
         heartbeatJSON = {
-            "op": 1,
+            "op": DiscordWebSocket.HEARTBEAT,
             "d": "null"
         }
         send_json_request(ws, heartbeatJSON)
@@ -102,7 +129,7 @@ print(f"heartbeat_interval = {heartbeat_interval}")
 threading._start_new_thread(heartbeat, (heartbeat_interval, ws))
 
 payload = {
-    'op': 2,
+    'op': DiscordWebSocket.IDENTIFY,
     "d": {
         "token": config.token,
         "properties": {
@@ -115,12 +142,13 @@ payload = {
 send_json_request(ws, payload)
 
 payload_RPC = {
-    "op": 3,
+    "op": DiscordWebSocket.PRESENCE,
     "d": {
         "since": 91879201,
         "activities": [{
             "name": config.activities_name,
-            "type": 0
+            "type": config.Activity_type,
+            "url": config.Activity_link
         }],
         "status": config.status,
         "afk": False
