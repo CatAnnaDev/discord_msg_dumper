@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from logging import raiseExceptions
 import websocket  # pip3 install websocket-client
 import requests  # pip3 install requests
 import json
@@ -99,18 +100,30 @@ def convert_size(size_bytes):
     return "%s %s" % (s, size_name[i])
 
 
-def get_guild_name(id):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
-        'Authorization': config.token
-    }
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
+    'Authorization': config.token
+}
 
+
+def get_guild_name(id):
     response = requests.get(
         f"https://discord.com/api/guilds/{id}",
         headers=headers,
         params={"with_counts": True}
     ).json()
     return response['name']
+
+
+def get_channels_name(id, channelID):
+    responses = requests.get(
+        f"https://discord.com/api/guilds/{id}/channels",
+        headers=headers,
+        params={"with_counts": True}
+    ).json()
+    for ch in range(len(responses)):
+        if responses[ch]["id"] == channelID:
+            return f"{responses[ch]['name']}\nNSFW ? {responses[ch]['nsfw']}"
 
 
 ws = websocket.WebSocket()
@@ -184,20 +197,20 @@ while True:
                     "------------------------------------------------------------\n")
                 if not "url" in obj:
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{usename}: {msg_content}\n")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])}\nChannel name: {get_channels_name(event['d']['guild_id'], event['d']['channel_id'])} \n{usename}: {msg_content}\n")
                 else:
                     attachments_link = f"\n\tUrl: {event['d']['attachments'][0]['url']} \n\tType: {event['d']['attachments'][0]['content_type']}\n"
                     file_object.write(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{usename}: {msg_content}\n\n Media: {attachments_link} ")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])}\nChannel name: {get_channels_name(event['d']['guild_id'], event['d']['channel_id'])} \n{usename}: {msg_content}\n\n Media: {attachments_link} ")
 
                 print("------------------------------------------------------------")
                 if not "url" in obj:
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])}\nChannel name: {get_channels_name(event['d']['guild_id'], event['d']['channel_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n")
                 else:
                     attachments_link = f"\n\tUrl: {event['d']['attachments'][0]['url']} \n\tType: {event['d']['attachments'][0]['content_type']}\n"
                     print(
-                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
+                        f"Timestamp: {ts}\nOpcode: {opcodes}: {opcodes_type}\nType: {Type}\nMsg URL: {url_msg}\nServer name: {get_guild_name(event['d']['guild_id'])}\nChannel name: {get_channels_name(event['d']['guild_id'], event['d']['channel_id'])} \n{bcolors.OKPURPLE}{usename}: {msg_content}{bcolors.ENDC}\n\n{bcolors.OKCYAN} Media: {attachments_link} {bcolors.ENDC}")
                     if config.img_download:
                         print(
                             bcolors.OKGREEN + f"Number of files: {len(event['d']['attachments'])}" + bcolors.ENDC)
